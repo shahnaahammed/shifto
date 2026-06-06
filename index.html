@@ -472,8 +472,8 @@ const AppHeader = _ref8 => {
   }, tabTitles[t])))));
 };
 
-// ─── Summary Footer ───────────────────────────────────────────────────────────
-const SummaryFooter = _ref9 => {
+// ─── Summary Tile ─────────────────────────────────────────────────────────────
+const SummaryTile = _ref9 => {
   let weekStats = _ref9.weekStats,
     totalHours = _ref9.totalHours,
     totalPay = _ref9.totalPay,
@@ -487,44 +487,39 @@ const SummaryFooter = _ref9 => {
   const monthName = MONTHS[new Date(weekKey).getMonth()];
   return /*#__PURE__*/React.createElement("div", {
     style: {
-      position: "fixed",
-      bottom: "calc(58px + env(safe-area-inset-bottom, 0px))",
-      left: 0,
-      right: 0,
-      zIndex: 90,
-      maxWidth: 430,
-      margin: "0 auto",
-      background: "#0e0e0e",
-      borderTop: "2px solid #2a2a2a",
-      boxShadow: "0 -4px 16px rgba(0,0,0,0.6)"
+      borderRadius: 14,
+      overflow: "hidden",
+      border: "1px solid #2a2a2a",
+      background: "#1a1a1a",
+      marginBottom: 6
     }
-  }, open && /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
+    onClick: () => setOpen(o => !o),
     style: {
-      padding: "10px 12px 8px",
-      borderBottom: "1px solid #1a1a1a",
-      background: "#111"
+      display: "flex",
+      alignItems: "center",
+      padding: "12px 14px",
+      cursor: "pointer",
+      userSelect: "none",
+      gap: 8
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
-      gap: 8,
-      marginBottom: 12
+      gap: 6,
+      flex: 1,
+      flexWrap: "nowrap"
     }
   }, weekStats.map(ag => /*#__PURE__*/React.createElement("div", {
     key: ag.id,
     style: {
-      flex: 1,
-      background: "#1a1a1a",
-      borderRadius: 10,
-      padding: "8px 10px",
-      border: `1px solid ${ag.color}33`
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
       display: "flex",
       alignItems: "center",
-      gap: 5,
-      marginBottom: 3
+      gap: 4,
+      background: "#111",
+      borderRadius: 8,
+      padding: "4px 9px",
+      border: `1px solid ${ag.color}44`
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -535,98 +530,8 @@ const SummaryFooter = _ref9 => {
     }
   }), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 9,
-      fontWeight: 700,
-      color: "#555",
-      fontFamily: "'DM Sans', sans-serif",
-      textTransform: "uppercase",
-      letterSpacing: "0.06em"
-    }
-  }, ag.name)), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 16,
+      fontSize: 13,
       fontWeight: 800,
-      color: ag.color,
-      fontFamily: "'DM Mono', monospace"
-    }
-  }, formatCurrency(ag.pay)), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 10,
-      color: "#444",
-      fontFamily: "'DM Sans', sans-serif"
-    }
-  }, formatHours(ag.hours)))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      flex: 1,
-      background: "#1a1a1a",
-      borderRadius: 10,
-      padding: "8px 10px",
-      border: "1px solid #252525"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 9,
-      fontWeight: 700,
-      color: "#555",
-      textTransform: "uppercase",
-      letterSpacing: "0.06em",
-      fontFamily: "'DM Sans', sans-serif",
-      marginBottom: 3
-    }
-  }, monthName.slice(0, 3)), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 16,
-      fontWeight: 800,
-      color: "#ccc",
-      fontFamily: "'DM Mono', monospace"
-    }
-  }, formatCurrency(monthPay)), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 10,
-      color: "#444",
-      fontFamily: "'DM Sans', sans-serif"
-    }
-  }, formatHours(monthHours))))), /*#__PURE__*/React.createElement("div", {
-    onClick: () => setOpen(o => !o),
-    style: {
-      display: "flex",
-      alignItems: "center",
-      padding: "7px 14px",
-      cursor: "pointer",
-      userSelect: "none",
-      gap: 8
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      gap: 5,
-      flex: 1,
-      flexWrap: "nowrap",
-      overflow: "hidden"
-    }
-  }, weekStats.map(ag => /*#__PURE__*/React.createElement("div", {
-    key: ag.id,
-    style: {
-      display: "flex",
-      alignItems: "center",
-      gap: 3,
-      background: "#1a1a1a",
-      borderRadius: 6,
-      padding: "3px 7px",
-      border: `1px solid ${ag.color}33`,
-      flexShrink: 0
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      width: 5,
-      height: 5,
-      borderRadius: "50%",
-      background: ag.color
-    }
-  }), /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontSize: 11,
-      fontWeight: 700,
       color: ag.color,
       fontFamily: "'DM Mono', monospace"
     }
@@ -634,7 +539,7 @@ const SummaryFooter = _ref9 => {
     style: {
       display: "flex",
       alignItems: "center",
-      gap: 6,
+      gap: 8,
       flexShrink: 0
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -643,30 +548,144 @@ const SummaryFooter = _ref9 => {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 9,
-      color: "#444",
+      fontSize: 10,
+      color: "#555",
       fontWeight: 700,
-      letterSpacing: "0.08em",
+      letterSpacing: "0.06em",
       textTransform: "uppercase",
       fontFamily: "'DM Sans', sans-serif"
     }
   }, "Combined"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 17,
+      fontSize: 20,
       fontWeight: 800,
       color: "#2ecc71",
       fontFamily: "'DM Mono', monospace",
-      lineHeight: 1
+      lineHeight: 1.1
     }
   }, formatCurrency(totalPay))), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 13,
-      color: "#333",
+      fontSize: 14,
+      color: "#444",
       display: "block",
       transition: "transform 0.2s",
       transform: open ? "rotate(180deg)" : "rotate(0deg)"
     }
-  }, "\u2303"))));
+  }, "\u2303"))), open && /*#__PURE__*/React.createElement("div", {
+    style: {
+      borderTop: "1px solid #252525",
+      padding: "12px 14px 14px",
+      background: "#161616"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8
+    }
+  }, weekStats.map(ag => /*#__PURE__*/React.createElement("div", {
+    key: ag.id,
+    style: {
+      flex: 1,
+      background: "#111",
+      borderRadius: 10,
+      padding: "10px 12px",
+      border: `1px solid ${ag.color}33`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 5,
+      marginBottom: 4
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 7,
+      height: 7,
+      borderRadius: "50%",
+      background: ag.color
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 10,
+      fontWeight: 700,
+      color: "#555",
+      fontFamily: "'DM Sans', sans-serif",
+      textTransform: "uppercase",
+      letterSpacing: "0.05em"
+    }
+  }, ag.name)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 17,
+      fontWeight: 800,
+      color: ag.color,
+      fontFamily: "'DM Mono', monospace"
+    }
+  }, formatCurrency(ag.pay)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "#444",
+      fontFamily: "'DM Sans', sans-serif",
+      marginTop: 2
+    }
+  }, formatHours(ag.hours)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      background: "#111",
+      borderRadius: 10,
+      padding: "10px 12px",
+      border: "1px solid #2a2a2a"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      fontWeight: 700,
+      color: "#555",
+      textTransform: "uppercase",
+      letterSpacing: "0.05em",
+      fontFamily: "'DM Sans', sans-serif",
+      marginBottom: 4
+    }
+  }, monthName.slice(0, 3)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 17,
+      fontWeight: 800,
+      color: "#ccc",
+      fontFamily: "'DM Mono', monospace"
+    }
+  }, formatCurrency(monthPay)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "#444",
+      fontFamily: "'DM Sans', sans-serif",
+      marginTop: 2
+    }
+  }, formatHours(monthHours)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 10,
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      paddingTop: 10,
+      borderTop: "1px solid #222"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: "#444",
+      fontFamily: "'DM Sans', sans-serif",
+      textTransform: "uppercase",
+      letterSpacing: "0.06em",
+      fontWeight: 700
+    }
+  }, "Total hours this week"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 16,
+      fontWeight: 800,
+      color: "#4f8ef7",
+      fontFamily: "'DM Mono', monospace"
+    }
+  }, formatHours(totalHours)))));
 };
 
 // ─── Shift Day Row ────────────────────────────────────────────────────────────
@@ -1011,7 +1030,7 @@ const WeeklyView = _ref1 => {
   };
   return /*#__PURE__*/React.createElement("div", {
     style: {
-      paddingBottom: 130
+      paddingBottom: 90
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -1108,11 +1127,7 @@ const WeeklyView = _ref1 => {
     agencyColor: agency.color,
     isExpanded: expandedDay === date,
     onToggleExpand: () => setExpandedDay(prev => prev === date ? null : date)
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      height: 16
-    }
-  }), /*#__PURE__*/React.createElement(SummaryFooter, {
+  })), /*#__PURE__*/React.createElement(SummaryTile, {
     weekStats: weekStats,
     totalHours: totalHours,
     totalPay: totalPay,
