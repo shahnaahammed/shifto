@@ -198,7 +198,7 @@ const TabBar = _ref => {
     onClick: () => onChange(t.id),
     style: {
       flex: 1,
-      padding: "10px 4px 8px",
+      padding: "12px 4px 10px",
       background: "none",
       border: "none",
       cursor: "pointer",
@@ -211,11 +211,11 @@ const TabBar = _ref => {
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 20
+      fontSize: 22
     }
   }, t.icon), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       fontFamily: "'DM Sans', sans-serif",
       fontWeight: 700,
       letterSpacing: "0.04em"
@@ -375,15 +375,19 @@ const AppHeader = _ref8 => {
   const name = appName || "Shifto";
   return /*#__PURE__*/React.createElement("div", {
     style: {
-      padding: "50px 16px 0",
-      background: "linear-gradient(180deg, #141414 0%, #0e0e0e 100%)",
-      borderBottom: "1px solid #1a1a1a"
+      paddingTop: "env(safe-area-inset-top, 44px)",
+      background: "#111",
+      borderBottom: "1px solid #1e1e1e"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "14px 16px 0"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       alignItems: "center",
-      marginBottom: 8
+      marginBottom: 12
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -392,52 +396,37 @@ const AppHeader = _ref8 => {
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
-      alignItems: "center",
-      gap: 10
-    }
-  }, /*#__PURE__*/React.createElement("img", {
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmx1ZWciIHgxPSIyMCUiIHkxPSIwJSIgeDI9IjgwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjN2FiM2ZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzNhN2VmNSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMTQiIGZpbGw9IiMxMTExMTEiLz4KICA8cmVjdCB4PSIxLjUiIHk9IjEuNSIgd2lkdGg9IjUwOSIgaGVpZ2h0PSI1MDkiIHJ4PSIxMTMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPHBhdGggZD0iTSAzMzAgMTQ4IEMgMzMwIDE0OCAyOTAgMTI4IDI0NiAxMjggQyAxODAgMTI4IDE0OCAxNjIgMTQ4IDIwNiBDIDE0OCAyNDggMTc2IDI2OCAyMzAgMjg0IEwgMjgyIDMwMCBDIDMxNiAzMTAgMzMyIDMyNiAzMzIgMzU4IEMgMzMyIDM5MiAzMDQgMzg2IDI3MCAzODYgQyAyMzAgMzg2IDE4MiAzNjIgMTgyIDM2MiBMIDE2NCA0MDQgQyAxNjQgNDA0IDIwOCA0MjggMjcwIDQyOCBDIDM0NCA0MjggMzgyIDM5MiAzODIgMzU0IEMgMzgyIDMwOCAzNTIgMjg2IDI5NiAyNjggTCAyNDQgMjUyIEMgMjEwIDI0MiAxOTYgMjI4IDE5NiAyMDQgQyAxOTYgMTc4IDIxNiAxNzAgMjQ4IDE3MCBDIDI4NCAxNzAgMzE4IDE4NiAzMTggMTg2IFoiIGZpbGw9InVybCgjYmx1ZWcpIi8+CiAgPGNpcmNsZSBjeD0iMzU2IiBjeT0iMzkwIiByPSIxOCIgZmlsbD0iIzRmOGVmNyIgb3BhY2l0eT0iMC42Ii8+Cjwvc3ZnPg==",
-    width: "28",
-    height: "28",
-    style: {
-      borderRadius: 6
-    },
-    alt: "Shifto"
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
       alignItems: "baseline",
-      gap: 2
+      gap: 1
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 20,
+      fontSize: 28,
       fontWeight: 900,
       color: "#f0f0f0",
       fontFamily: "'DM Sans', sans-serif",
-      letterSpacing: "-0.03em"
+      letterSpacing: "-0.04em"
     }
-  }, name.slice(0, -1)), /*#__PURE__*/React.createElement("span", {
+  }, "Shift"), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 20,
+      fontSize: 28,
       fontWeight: 900,
       color: "#4f8ef7",
       fontFamily: "'DM Sans', sans-serif",
-      letterSpacing: "-0.03em"
+      letterSpacing: "-0.04em"
     }
-  }, name.slice(-1)))), /*#__PURE__*/React.createElement("div", {
+  }, "o")), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 11,
+      fontSize: 12,
       color: "#444",
       fontFamily: "'DM Sans', sans-serif",
-      letterSpacing: "0.02em",
-      marginTop: 1
+      marginTop: 3
     }
   }, dayStr, ", ", dateStr)), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       flexDirection: "column",
-      gap: 4,
+      gap: 5,
       alignItems: "flex-end"
     }
   }, agencies.map(ag => /*#__PURE__*/React.createElement("div", {
@@ -445,22 +434,23 @@ const AppHeader = _ref8 => {
     style: {
       display: "flex",
       alignItems: "center",
-      gap: 5
+      gap: 6
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 10,
-      color: "#444",
-      fontFamily: "'DM Sans', sans-serif"
+      fontSize: 11,
+      color: "#555",
+      fontFamily: "'DM Sans', sans-serif",
+      fontWeight: 600
     }
   }, ag.name), /*#__PURE__*/React.createElement("span", {
     style: {
       background: ag.color + "22",
       color: ag.color,
-      fontSize: 11,
+      fontSize: 12,
       fontWeight: 700,
-      borderRadius: 6,
-      padding: "2px 7px",
+      borderRadius: 7,
+      padding: "3px 9px",
       fontFamily: "'DM Mono', monospace"
     }
   }, formatCurrency(ag.rate), "/hr"))))), /*#__PURE__*/React.createElement("div", {
@@ -470,8 +460,8 @@ const AppHeader = _ref8 => {
   }, ["week", "reports", "settings"].map(t => /*#__PURE__*/React.createElement("div", {
     key: t,
     style: {
-      padding: "6px 12px 7px",
-      fontSize: 12,
+      padding: "9px 14px 10px",
+      fontSize: 13,
       fontWeight: 700,
       fontFamily: "'DM Sans', sans-serif",
       color: tab === t ? "#4f8ef7" : "#3a3a3a",
@@ -479,7 +469,7 @@ const AppHeader = _ref8 => {
       transition: "all 0.2s",
       marginBottom: -1
     }
-  }, tabTitles[t]))));
+  }, tabTitles[t])))));
 };
 
 // ─── Summary Footer ───────────────────────────────────────────────────────────
@@ -517,7 +507,7 @@ const SummaryFooter = _ref9 => {
     style: {
       display: "flex",
       gap: 8,
-      marginBottom: 8
+      marginBottom: 12
     }
   }, weekStats.map(ag => /*#__PURE__*/React.createElement("div", {
     key: ag.id,
@@ -695,7 +685,7 @@ const ShiftDayRow = _ref0 => {
   });
   return /*#__PURE__*/React.createElement("div", {
     style: {
-      marginBottom: 3,
+      marginBottom: 6,
       border: `1px solid ${shift.working ? agencyColor + "40" : "#1e1e1e"}`,
       borderRadius: 12,
       overflow: "hidden",
@@ -705,11 +695,11 @@ const ShiftDayRow = _ref0 => {
     style: {
       display: "flex",
       alignItems: "center",
-      padding: "6px 10px",
+      padding: "10px 12px",
       background: shift.working ? agencyColor + "0c" : "#161616",
       gap: 8,
       cursor: "pointer",
-      minHeight: 42
+      minHeight: 52
     },
     onClick: onToggleExpand
   }, /*#__PURE__*/React.createElement("div", {
@@ -729,7 +719,7 @@ const ShiftDayRow = _ref0 => {
     }
   }, getDayName(date)), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 16,
+      fontSize: 20,
       fontWeight: 800,
       lineHeight: 1,
       fontFamily: "'DM Mono', monospace",
@@ -746,7 +736,7 @@ const ShiftDayRow = _ref0 => {
     }
   }, shift.working && shift.startTime && shift.endTime ? /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 13,
+      fontSize: 14,
       color: "#999",
       fontFamily: "'DM Sans', sans-serif",
       whiteSpace: "nowrap",
@@ -765,7 +755,7 @@ const ShiftDayRow = _ref0 => {
     }
   }, "\xB7 ", shift.note)) : /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 12,
+      fontSize: 13,
       color: "#333",
       fontFamily: "'DM Sans', sans-serif"
     }
@@ -778,7 +768,7 @@ const ShiftDayRow = _ref0 => {
     }
   }, shift.working && hours > 0 && /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 11,
+      fontSize: 13,
       fontWeight: 700,
       color: agencyColor,
       fontFamily: "'DM Mono', monospace"
@@ -1020,7 +1010,7 @@ const WeeklyView = _ref1 => {
   };
   return /*#__PURE__*/React.createElement("div", {
     style: {
-      paddingBottom: 140
+      paddingBottom: 160
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -1047,7 +1037,7 @@ const WeeklyView = _ref1 => {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 13,
+      fontSize: 15,
       fontWeight: 700,
       color: "#bbb",
       fontFamily: "'DM Sans', sans-serif"
@@ -1098,7 +1088,7 @@ const WeeklyView = _ref1 => {
     },
     style: {
       flex: 1,
-      padding: "7px 8px",
+      padding: "10px 8px",
       borderRadius: 10,
       cursor: "pointer",
       background: activeAgency === ag.id ? ag.color : "#1a1a1a",
@@ -1355,7 +1345,7 @@ const ReportsView = _ref10 => {
       }
     }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 13,
+        fontSize: 15,
         fontWeight: 700,
         color: "#bbb",
         fontFamily: "'DM Sans', sans-serif"
@@ -1390,7 +1380,7 @@ const ReportsView = _ref10 => {
       textTransform: "uppercase",
       letterSpacing: "0.1em",
       fontFamily: "'DM Sans', sans-serif",
-      marginBottom: 8
+      marginBottom: 12
     }
   }, "Combined \xB7 ", mode === "yearly" ? selectedYear : `${MONTHS[selectedMonth]} ${selectedYear}`), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -1948,7 +1938,15 @@ function App() {
     _useState26 = _slicedToArray(_useState25, 2),
     shifts = _useState26[0],
     setShifts = _useState26[1];
-  const _useState27 = useState(() => load("spt_prefs", DEFAULT_PREFS)),
+  const _useState27 = useState(() => {
+      const p = load("spt_prefs", DEFAULT_PREFS);
+      // migrate: if weekStartDay is 0 (Sunday) and was never explicitly set, default to Monday
+      if (p.weekStartDay === undefined) return {
+        ...p,
+        weekStartDay: 1
+      };
+      return p;
+    }),
     _useState28 = _slicedToArray(_useState27, 2),
     prefs = _useState28[0],
     setPrefs = _useState28[1];
@@ -1991,7 +1989,7 @@ function App() {
     tab: tab
   }), /*#__PURE__*/React.createElement("div", {
     style: {
-      padding: "8px 12px 0"
+      padding: "12px 14px 0"
     }
   }, tab === "week" && /*#__PURE__*/React.createElement(WeeklyView, {
     agencies: agencies,
