@@ -377,7 +377,14 @@ const AppHeader = _ref8 => {
     style: {
       paddingTop: "env(safe-area-inset-top, 44px)",
       background: "#111",
-      borderBottom: "1px solid #1e1e1e"
+      borderBottom: "1px solid #1e1e1e",
+      position: "fixed",
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 200,
+      maxWidth: 430,
+      margin: "0 auto"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2009,7 +2016,8 @@ function App() {
     tab: tab
   }), /*#__PURE__*/React.createElement("div", {
     style: {
-      padding: "12px 14px 0"
+      padding: "12px 14px 0",
+      paddingTop: "calc(env(safe-area-inset-top, 44px) + 110px)"
     }
   }, tab === "week" && /*#__PURE__*/React.createElement(WeeklyView, {
     agencies: agencies,
