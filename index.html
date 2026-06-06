@@ -495,7 +495,8 @@ const SummaryFooter = _ref9 => {
       maxWidth: 430,
       margin: "0 auto",
       background: "#0e0e0e",
-      borderTop: "1px solid #222"
+      borderTop: "2px solid #2a2a2a",
+      boxShadow: "0 -4px 16px rgba(0,0,0,0.6)"
     }
   }, open && /*#__PURE__*/React.createElement("div", {
     style: {
@@ -1010,7 +1011,7 @@ const WeeklyView = _ref1 => {
   };
   return /*#__PURE__*/React.createElement("div", {
     style: {
-      paddingBottom: 160
+      paddingBottom: 130
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -1107,7 +1108,11 @@ const WeeklyView = _ref1 => {
     agencyColor: agency.color,
     isExpanded: expandedDay === date,
     onToggleExpand: () => setExpandedDay(prev => prev === date ? null : date)
-  })), /*#__PURE__*/React.createElement(SummaryFooter, {
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      height: 16
+    }
+  }), /*#__PURE__*/React.createElement(SummaryFooter, {
     weekStats: weekStats,
     totalHours: totalHours,
     totalPay: totalPay,
