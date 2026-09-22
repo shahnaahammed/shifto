@@ -1,0 +1,2222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="Shifto"/>
+  <meta name="theme-color" content="#0e0e0e"/>
+  <title>Shifto</title>
+  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImJsdWVnIiB4MT0iMjAlIiB5MT0iMCUiIHgyPSI4MCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjN2FiM2ZmIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjM2E3ZWY1Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMTQiIGZpbGw9IiMxMTExMTEiLz48cmVjdCB4PSIxLjUiIHk9IjEuNSIgd2lkdGg9IjUwOSIgaGVpZ2h0PSI1MDkiIHJ4PSIxMTMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgc3Ryb2tlLXdpZHRoPSIzIi8+PHBhdGggZD0iTSAzMzAgMTQ4IEMgMzMwIDE0OCAyOTAgMTI4IDI0NiAxMjggQyAxODAgMTI4IDE0OCAxNjIgMTQ4IDIwNiBDIDE0OCAyNDggMTc2IDI2OCAyMzAgMjg0IEwgMjgyIDMwMCBDIDMxNiAzMTAgMzMyIDMyNiAzMzIgMzU4IEMgMzMyIDM5MiAzMDQgMzg2IDI3MCAzODYgQyAyMzAgMzg2IDE4MiAzNjIgMTgyIDM2MiBMIDE2NCA0MDQgQyAxNjQgNDA0IDIwOCA0MjggMjcwIDQyOCBDIDM0NCA0MjggMzgyIDM5MiAzODIgMzU0IEMgMzgyIDMwOCAzNTIgMjg2IDI5NiAyNjggTCAyNDQgMjUyIEMgMjEwIDI0MiAxOTYgMjI4IDE5NiAyMDQgQyAxOTYgMTc4IDIxNiAxNzAgMjQ4IDE3MCBDIDI4NCAxNzAgMzE4IDE4NiAzMTggMTg2IFoiIGZpbGw9InVybCgjYmx1ZWcpIi8+PGNpcmNsZSBjeD0iMzU2IiBjeT0iMzkwIiByPSIxOCIgZmlsbD0iIzRmOGVmNyIgb3BhY2l0eT0iMC42Ii8+PC9zdmc+"/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImJsdWVnIiB4MT0iMjAlIiB5MT0iMCUiIHgyPSI4MCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjN2FiM2ZmIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjM2E3ZWY1Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMTQiIGZpbGw9IiMxMTExMTEiLz48cmVjdCB4PSIxLjUiIHk9IjEuNSIgd2lkdGg9IjUwOSIgaGVpZ2h0PSI1MDkiIHJ4PSIxMTMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgc3Ryb2tlLXdpZHRoPSIzIi8+PHBhdGggZD0iTSAzMzAgMTQ4IEMgMzMwIDE0OCAyOTAgMTI4IDI0NiAxMjggQyAxODAgMTI4IDE0OCAxNjIgMTQ4IDIwNiBDIDE0OCAyNDggMTc2IDI2OCAyMzAgMjg0IEwgMjgyIDMwMCBDIDMxNiAzMTAgMzMyIDMyNiAzMzIgMzU4IEMgMzMyIDM5MiAzMDQgMzg2IDI3MCAzODYgQyAyMzAgMzg2IDE4MiAzNjIgMTgyIDM2MiBMIDE2NCA0MDQgQyAxNjQgNDA0IDIwOCA0MjggMjcwIDQyOCBDIDM0NCA0MjggMzgyIDM5MiAzODIgMzU0IEMgMzgyIDMwOCAzNTIgMjg2IDI5NiAyNjggTCAyNDQgMjUyIEMgMjEwIDI0MiAxOTYgMjI4IDE5NiAyMDQgQyAxOTYgMTc4IDIxNiAxNzAgMjQ4IDE3MCBDIDI4NCAxNzAgMzE4IDE4NiAzMTggMTg2IFoiIGZpbGw9InVybCgjYmx1ZWcpIi8+PGNpcmNsZSBjeD0iMzU2IiBjeT0iMzkwIiByPSIxOCIgZmlsbD0iIzRmOGVmNyIgb3BhY2l0eT0iMC42Ii8+PC9zdmc+"/>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    // Force-fix weekStartDay: if stored value is 0 (Sunday) and user hasn't
+    // explicitly chosen Sunday via the new _userChoseDay flag, reset to Monday
+    (function() {
+      try {
+        var raw = localStorage.getItem('spt_prefs');
+        if (!raw) return;
+        var p = JSON.parse(raw);
+        // Only leave Sunday if user explicitly chose it
+        if (p.weekStartDay === 0 && !p._userChoseDay) {
+          p.weekStartDay = 1;
+          localStorage.setItem('spt_prefs', JSON.stringify(p));
+        }
+      } catch(e) {}
+    })();
+  </script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script>
+const {
+  useState,
+  useEffect,
+  useMemo
+} = React;
+
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+const toMins = t => {
+  if (!t) return 0;
+  const [h, m] = t.split(":").map(Number);
+  return h * 60 + m;
+};
+const toHours = m => Math.round(m / 60 * 100) / 100;
+const fmtHours = h => {
+  const hrs = Math.floor(h),
+    mins = Math.round((h - hrs) * 60);
+  if (!hrs && !mins) return "0h";
+  if (!hrs) return `${mins}m`;
+  if (!mins) return `${hrs}h`;
+  return `${hrs}h ${mins}m`;
+};
+const fmtGBP = n => new Intl.NumberFormat("en-GB", {
+  style: "currency",
+  currency: "GBP"
+}).format(n);
+const dayName = d => new Date(d + "T00:00:00").toLocaleDateString("en-GB", {
+  weekday: "short"
+});
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const WEEK_DAYS = [{
+  v: 1,
+  l: "Mon"
+}, {
+  v: 2,
+  l: "Tue"
+}, {
+  v: 3,
+  l: "Wed"
+}, {
+  v: 4,
+  l: "Thu"
+}, {
+  v: 5,
+  l: "Fri"
+}, {
+  v: 6,
+  l: "Sat"
+}, {
+  v: 0,
+  l: "Sun"
+}];
+const uuid = () => Math.random().toString(36).slice(2);
+const getWeekKey = (date, wsd = 1) => {
+  const d = new Date(date);
+  d.setHours(0, 0, 0, 0);
+  const diff = (d.getDay() - wsd + 7) % 7;
+  d.setDate(d.getDate() - diff);
+  return d.toISOString().slice(0, 10);
+};
+const getWeekDates = wk => Array.from({
+  length: 7
+}, (_, i) => {
+  const d = new Date(wk);
+  d.setDate(d.getDate() + i);
+  return d.toISOString().slice(0, 10);
+});
+const weekLabel = wk => {
+  const s = new Date(wk),
+    e = new Date(wk);
+  e.setDate(e.getDate() + 6);
+  return `${s.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short"
+  })} – ${e.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+  })}`;
+};
+const shiftHours = s => {
+  if (!s.working || !s.startTime || !s.endTime) return 0;
+  let a = toMins(s.startTime),
+    b = toMins(s.endTime);
+  if (b <= a) b += 1440;
+  return toHours(b - a);
+};
+const shiftPay = (s, rate) => shiftHours(s) * rate + (s.hasSleepover ? s.sleepoversRate || 60 : 0);
+const load = (k, d) => {
+  try {
+    const v = localStorage.getItem(k);
+    return v ? JSON.parse(v) : d;
+  } catch {
+    return d;
+  }
+};
+const save = (k, v) => {
+  try {
+    localStorage.setItem(k, JSON.stringify(v));
+  } catch {}
+};
+const DEFAULT_AGENCIES = [{
+  id: "a1",
+  name: "Agency 1",
+  rate: 12.68,
+  color: "#4f8ef7"
+}, {
+  id: "a2",
+  name: "Agency 2",
+  rate: 12.65,
+  color: "#f7874f"
+}];
+const DEFAULT_PREFS = {
+  weekStartDay: 1,
+  appName: "Shifto"
+};
+const blankShift = aid => ({
+  id: uuid(),
+  agencyId: aid,
+  working: false,
+  startTime: "",
+  endTime: "",
+  note: "",
+  hasSleepover: false,
+  sleepoversRate: 60,
+  slpStart: "",
+  slpEnd: "",
+  continuesNext: false
+});
+
+// ─── Google Drive ─────────────────────────────────────────────────────────────
+const CLIENT_ID = "172131256633-k2eod5od16tdo7qeqd64lml0rf8up6op.apps.googleusercontent.com";
+const gDrive = {
+  _token: null,
+  async token() {
+    if (this._token && this._token.exp > Date.now()) return this._token.tok;
+    return new Promise((res, rej) => {
+      const c = window.google.accounts.oauth2.initTokenClient({
+        client_id: CLIENT_ID,
+        scope: "https://www.googleapis.com/auth/drive.appdata",
+        callback: r => {
+          if (r.error) return rej(r.error);
+          this._token = {
+            tok: r.access_token,
+            exp: Date.now() + (r.expires_in - 60) * 1000
+          };
+          res(r.access_token);
+        }
+      });
+      c.requestAccessToken({
+        prompt: ""
+      });
+    });
+  },
+  async save(data) {
+    const t = await this.token(),
+      j = JSON.stringify(data);
+    const q = await fetch("https://www.googleapis.com/drive/v3/files?spaces=appDataFolder&q=name%3D'shifto-backup.json'&fields=files(id)", {
+      headers: {
+        Authorization: "Bearer " + t
+      }
+    });
+    const found = await q.json();
+    const id = found.files?.[0]?.id;
+    const meta = id ? {
+      name: "shifto-backup.json"
+    } : {
+      name: "shifto-backup.json",
+      parents: ["appDataFolder"]
+    };
+    const form = new FormData();
+    form.append("metadata", new Blob([JSON.stringify(meta)], {
+      type: "application/json"
+    }));
+    form.append("file", new Blob([j], {
+      type: "application/json"
+    }));
+    const r = await fetch(id ? `https://www.googleapis.com/upload/drive/v3/files/${id}?uploadType=multipart` : "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart", {
+      method: id ? "PATCH" : "POST",
+      headers: {
+        Authorization: "Bearer " + t
+      },
+      body: form
+    });
+    if (!r.ok) throw new Error("Save failed");
+  },
+  async load() {
+    const t = await this.token();
+    const q = await fetch("https://www.googleapis.com/drive/v3/files?spaces=appDataFolder&q=name%3D'shifto-backup.json'&fields=files(id)", {
+      headers: {
+        Authorization: "Bearer " + t
+      }
+    });
+    const found = await q.json();
+    const id = found.files?.[0]?.id;
+    if (!id) return null;
+    const r = await fetch(`https://www.googleapis.com/drive/v3/files/${id}?alt=media`, {
+      headers: {
+        Authorization: "Bearer " + t
+      }
+    });
+    if (!r.ok) throw new Error("Load failed");
+    return r.json();
+  }
+};
+
+// ─── Base components ──────────────────────────────────────────────────────────
+const C = ({
+  children,
+  style
+}) => /*#__PURE__*/React.createElement("div", {
+  style: {
+    background: "#1a1a1a",
+    borderRadius: 14,
+    padding: "14px 16px",
+    marginBottom: 10,
+    border: "1px solid #252525",
+    ...style
+  }
+}, children);
+const SL = ({
+  children
+}) => /*#__PURE__*/React.createElement("div", {
+  style: {
+    fontSize: 11,
+    fontWeight: 700,
+    color: "#555",
+    letterSpacing: "0.1em",
+    textTransform: "uppercase",
+    marginBottom: 8,
+    marginTop: 20,
+    fontFamily: "'DM Sans',sans-serif"
+  }
+}, children);
+const FL = ({
+  children
+}) => /*#__PURE__*/React.createElement("div", {
+  style: {
+    fontSize: 11,
+    fontWeight: 700,
+    color: "#555",
+    letterSpacing: "0.07em",
+    textTransform: "uppercase",
+    marginBottom: 5,
+    fontFamily: "'DM Sans',sans-serif"
+  }
+}, children);
+const In = ({
+  style,
+  ...p
+}) => /*#__PURE__*/React.createElement("input", {
+  ...p,
+  style: {
+    background: "#111",
+    border: "1px solid #2a2a2a",
+    borderRadius: 10,
+    color: "#f0f0f0",
+    padding: "10px 12px",
+    fontSize: 15,
+    width: "100%",
+    boxSizing: "border-box",
+    fontFamily: "'DM Sans',sans-serif",
+    outline: "none",
+    WebkitAppearance: "none",
+    ...style
+  }
+});
+const CB = ({
+  checked,
+  onChange,
+  label,
+  accent
+}) => /*#__PURE__*/React.createElement("label", {
+  style: {
+    display: "flex",
+    alignItems: "center",
+    gap: 10,
+    cursor: "pointer"
+  },
+  onClick: e => {
+    e.stopPropagation();
+    onChange();
+  }
+}, /*#__PURE__*/React.createElement("div", {
+  style: {
+    width: 22,
+    height: 22,
+    borderRadius: 6,
+    flexShrink: 0,
+    background: checked ? accent || "#4f8ef7" : "transparent",
+    border: `2px solid ${checked ? accent || "#4f8ef7" : "#3a3a3a"}`,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "all 0.15s"
+  }
+}, checked && /*#__PURE__*/React.createElement("svg", {
+  width: "13",
+  height: "10",
+  viewBox: "0 0 13 10",
+  fill: "none"
+}, /*#__PURE__*/React.createElement("path", {
+  d: "M1.5 5L5 8.5L11.5 1.5",
+  stroke: "#fff",
+  strokeWidth: "2.2",
+  strokeLinecap: "round",
+  strokeLinejoin: "round"
+}))), label && /*#__PURE__*/React.createElement("span", {
+  style: {
+    fontSize: 14,
+    color: checked ? "#d0d0d0" : "#777",
+    fontFamily: "'DM Sans',sans-serif",
+    transition: "color 0.15s"
+  }
+}, label));
+
+// ─── Tab Bar ──────────────────────────────────────────────────────────────────
+const TABS = [{
+  id: "week",
+  icon: "📋",
+  label: "Timesheet"
+}, {
+  id: "reports",
+  icon: "📊",
+  label: "Reports"
+}, {
+  id: "settings",
+  icon: "⚙️",
+  label: "Settings"
+}];
+const TabBar = ({
+  active,
+  onChange
+}) => /*#__PURE__*/React.createElement("div", {
+  style: {
+    display: "flex",
+    background: "#111",
+    borderTop: "1px solid #1e1e1e",
+    position: "fixed",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: 100,
+    paddingBottom: "env(safe-area-inset-bottom,0px)",
+    maxWidth: 430,
+    margin: "0 auto"
+  }
+}, TABS.map(t => /*#__PURE__*/React.createElement("button", {
+  key: t.id,
+  onClick: () => onChange(t.id),
+  style: {
+    flex: 1,
+    padding: "12px 4px 10px",
+    background: "none",
+    border: "none",
+    cursor: "pointer",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: 3,
+    color: active === t.id ? "#4f8ef7" : "#444",
+    transition: "all 0.18s"
+  }
+}, /*#__PURE__*/React.createElement("span", {
+  style: {
+    fontSize: 22
+  }
+}, t.icon), /*#__PURE__*/React.createElement("span", {
+  style: {
+    fontSize: 11,
+    fontFamily: "'DM Sans',sans-serif",
+    fontWeight: 700,
+    letterSpacing: "0.04em"
+  }
+}, t.label))));
+
+// ─── App Header ───────────────────────────────────────────────────────────────
+const AppHeader = ({
+  appName,
+  agencies,
+  tab,
+  onTabChange
+}) => {
+  const today = new Date();
+  const dayStr = today.toLocaleDateString("en-GB", {
+    weekday: "long"
+  });
+  const dateStr = today.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  });
+  const name = appName || "Shifto";
+  const tabLabels = {
+    week: "Timesheet",
+    reports: "Reports",
+    settings: "Settings"
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      paddingTop: "env(safe-area-inset-top,44px)",
+      background: "#111",
+      borderBottom: "1px solid #1e1e1e",
+      position: "fixed",
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 200,
+      maxWidth: 430,
+      margin: "0 auto"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "10px 16px 0"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "baseline",
+      gap: 1
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 28,
+      fontWeight: 900,
+      color: "#f0f0f0",
+      fontFamily: "'DM Sans',sans-serif",
+      letterSpacing: "-0.04em"
+    }
+  }, name.slice(0, -1)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 28,
+      fontWeight: 900,
+      color: "#4f8ef7",
+      fontFamily: "'DM Sans',sans-serif",
+      letterSpacing: "-0.04em"
+    }
+  }, name.slice(-1))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#444",
+      fontFamily: "'DM Sans',sans-serif",
+      marginTop: 2
+    }
+  }, dayStr, ", ", dateStr)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 5,
+      alignItems: "flex-end"
+    }
+  }, agencies.map(ag => /*#__PURE__*/React.createElement("div", {
+    key: ag.id,
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 6
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: "#555",
+      fontFamily: "'DM Sans',sans-serif",
+      fontWeight: 600
+    }
+  }, ag.name), /*#__PURE__*/React.createElement("span", {
+    style: {
+      background: ag.color + "22",
+      color: ag.color,
+      fontSize: 12,
+      fontWeight: 700,
+      borderRadius: 7,
+      padding: "3px 9px",
+      fontFamily: "'DM Mono',monospace"
+    }
+  }, fmtGBP(ag.rate), "/hr"))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex"
+    }
+  }, ["week", "reports", "settings"].map(t => /*#__PURE__*/React.createElement("div", {
+    key: t,
+    onClick: () => onTabChange(t),
+    style: {
+      padding: "9px 14px 10px",
+      fontSize: 13,
+      fontWeight: 700,
+      fontFamily: "'DM Sans',sans-serif",
+      color: tab === t ? "#4f8ef7" : "#3a3a3a",
+      borderBottom: tab === t ? "2px solid #4f8ef7" : "2px solid transparent",
+      transition: "all 0.2s",
+      marginBottom: -1,
+      cursor: "pointer"
+    }
+  }, tabLabels[t])))));
+};
+
+// ─── Delete Confirm ───────────────────────────────────────────────────────────
+const DeleteConfirm = ({
+  onDelete
+}) => {
+  const [conf, setConf] = useState(false);
+  return conf ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 12,
+      background: "#1e0f0f",
+      borderRadius: 10,
+      padding: "12px",
+      border: "1px solid #4a1515"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#e74c3c",
+      fontFamily: "'DM Sans',sans-serif",
+      marginBottom: 10,
+      fontWeight: 600
+    }
+  }, "Delete this agency? All shift data will be lost."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: onDelete,
+    style: {
+      flex: 1,
+      padding: "9px",
+      borderRadius: 9,
+      background: "#e74c3c",
+      border: "none",
+      color: "#fff",
+      fontFamily: "'DM Sans',sans-serif",
+      fontWeight: 700,
+      fontSize: 13,
+      cursor: "pointer"
+    }
+  }, "Yes, delete"), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setConf(false),
+    style: {
+      flex: 1,
+      padding: "9px",
+      borderRadius: 9,
+      background: "#1a1a1a",
+      border: "1px solid #252525",
+      color: "#666",
+      fontFamily: "'DM Sans',sans-serif",
+      fontWeight: 700,
+      fontSize: 13,
+      cursor: "pointer"
+    }
+  }, "Cancel"))) : /*#__PURE__*/React.createElement("button", {
+    onClick: () => setConf(true),
+    style: {
+      width: "100%",
+      marginTop: 10,
+      padding: "9px",
+      borderRadius: 9,
+      background: "none",
+      border: "1px solid #2a1515",
+      color: "#7a3030",
+      fontFamily: "'DM Sans',sans-serif",
+      fontWeight: 700,
+      fontSize: 13,
+      cursor: "pointer"
+    }
+  }, "Delete this agency");
+};
+
+// ─── Google Sync ──────────────────────────────────────────────────────────────
+const GoogleSync = ({
+  agencies,
+  shifts,
+  prefs,
+  onRestore
+}) => {
+  const [status, setStatus] = useState(null);
+  const [lastSync, setLastSync] = useState(() => load("spt_last_sync", null));
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    const t = setInterval(() => {
+      if (window.google?.accounts?.oauth2) {
+        setReady(true);
+        clearInterval(t);
+      }
+    }, 300);
+    return () => clearInterval(t);
+  }, []);
+  const doSync = async () => {
+    setStatus("syncing");
+    try {
+      await gDrive.save({
+        version: 1,
+        exportedAt: new Date().toISOString(),
+        agencies,
+        shifts,
+        prefs
+      });
+      const n = new Date().toISOString();
+      setLastSync(n);
+      save("spt_last_sync", n);
+      setStatus("success");
+      setTimeout(() => setStatus(null), 3000);
+    } catch (e) {
+      setStatus("error");
+      setTimeout(() => setStatus(null), 4000);
+    }
+  };
+  const doRestore = async () => {
+    setStatus("restoring");
+    try {
+      const d = await gDrive.load();
+      if (!d) {
+        alert("No backup found in Google Drive.");
+        setStatus(null);
+        return;
+      }
+      onRestore(d);
+      setStatus("success");
+      setTimeout(() => setStatus(null), 3000);
+    } catch (e) {
+      setStatus("error");
+      setTimeout(() => setStatus(null), 3000);
+    }
+  };
+  const ls = lastSync ? "Last synced: " + new Date(lastSync).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit"
+  }) : "Never synced";
+  const sc = {
+    success: "#2ecc71",
+    error: "#e74c3c",
+    syncing: "#888",
+    restoring: "#888"
+  }[status];
+  const sm = {
+    syncing: "Syncing...",
+    restoring: "Restoring...",
+    success: "Done ✓",
+    error: "Something went wrong"
+  }[status];
+  const dis = !ready || !!status;
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 8,
+      height: 8,
+      borderRadius: "50%",
+      background: ready ? "#2ecc71" : "#555"
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 12,
+      color: "#555",
+      fontFamily: "'DM Sans',sans-serif"
+    }
+  }, ready ? "Google ready" : "Loading Google..."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: "#3a3a3a",
+      fontFamily: "'DM Sans',sans-serif"
+    }
+  }, ls)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      marginBottom: status ? 8 : 0
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: doSync,
+    disabled: dis,
+    style: {
+      flex: 1,
+      padding: "11px",
+      borderRadius: 10,
+      background: "#1a2a1a",
+      border: "1px solid #2a5a2a",
+      color: "#2ecc71",
+      fontFamily: "'DM Sans',sans-serif",
+      fontWeight: 700,
+      fontSize: 13,
+      cursor: dis ? "not-allowed" : "pointer",
+      opacity: dis ? 0.5 : 1
+    }
+  }, "☁ Sync to Drive"), /*#__PURE__*/React.createElement("button", {
+    onClick: doRestore,
+    disabled: dis,
+    style: {
+      flex: 1,
+      padding: "11px",
+      borderRadius: 10,
+      background: "#1a1a2a",
+      border: "1px solid #2a2a5a",
+      color: "#7ab3ff",
+      fontFamily: "'DM Sans',sans-serif",
+      fontWeight: 700,
+      fontSize: 13,
+      cursor: dis ? "not-allowed" : "pointer",
+      opacity: dis ? 0.5 : 1
+    }
+  }, "↓ Restore")), status && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: sc,
+      fontFamily: "'DM Sans',sans-serif",
+      textAlign: "center",
+      padding: "4px 0"
+    }
+  }, sm));
+};
+
+// ─── Summary Tile ─────────────────────────────────────────────────────────────
+const SummaryTile = ({
+  weekStats,
+  totalHours,
+  totalPay,
+  monthPay,
+  monthHours,
+  weekKey
+}) => {
+  const [open, setOpen] = useState(false);
+  const monthName = MONTHS[new Date(weekKey).getMonth()];
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      borderRadius: 14,
+      overflow: "hidden",
+      border: "1px solid #2a2a2a",
+      background: "#1a1a1a",
+      marginBottom: 6
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    onClick: () => setOpen(o => !o),
+    style: {
+      display: "flex",
+      alignItems: "center",
+      padding: "12px 14px",
+      cursor: "pointer",
+      userSelect: "none",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6,
+      flex: 1,
+      flexWrap: "nowrap"
+    }
+  }, weekStats.map(ag => /*#__PURE__*/React.createElement("div", {
+    key: ag.id,
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 4,
+      background: "#111",
+      borderRadius: 8,
+      padding: "4px 9px",
+      border: `1px solid ${ag.color}44`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 6,
+      height: 6,
+      borderRadius: "50%",
+      background: ag.color
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 13,
+      fontWeight: 800,
+      color: ag.color,
+      fontFamily: "'DM Mono',monospace"
+    }
+  }, fmtGBP(ag.pay))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      flexShrink: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "right"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: "#555",
+      fontWeight: 700,
+      letterSpacing: "0.06em",
+      textTransform: "uppercase",
+      fontFamily: "'DM Sans',sans-serif"
+    }
+  }, "Combined"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 20,
+      fontWeight: 800,
+      color: "#2ecc71",
+      fontFamily: "'DM Mono',monospace",
+      lineHeight: 1.1
+    }
+  }, fmtGBP(totalPay))), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 14,
+      color: "#444",
+      display: "block",
+      transition: "transform 0.2s",
+      transform: open ? "rotate(180deg)" : "rotate(0deg)"
+    }
+  }, "⌃"))), open && /*#__PURE__*/React.createElement("div", {
+    style: {
+      borderTop: "1px solid #252525",
+      padding: "12px 14px 14px",
+      background: "#161616"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8
+    }
+  }, weekStats.map(ag => /*#__PURE__*/React.createElement("div", {
+    key: ag.id,
+    style: {
+      flex: 1,
+      background: "#111",
+      borderRadius: 10,
+      padding: "10px 12px",
+      border: `1px solid ${ag.color}33`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 5,
+      marginBottom: 4
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 7,
+      height: 7,
+      borderRadius: "50%",
+      background: ag.color
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 10,
+      fontWeight: 700,
+      color: "#555",
+      fontFamily: "'DM Sans',sans-serif",
+      textTransform: "uppercase",
+      letterSpacing: "0.05em"
+    }
+  }, ag.name)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 17,
+      fontWeight: 800,
+      color: ag.color,
+      fontFamily: "'DM Mono',monospace"
+    }
+  }, fmtGBP(ag.pay)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "#444",
+      fontFamily: "'DM Sans',sans-serif",
+      marginTop: 2
+    }
+  }, fmtHours(ag.hours)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      background: "#111",
+      borderRadius: 10,
+      padding: "10px 12px",
+      border: "1px solid #2a2a2a"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      fontWeight: 700,
+      color: "#555",
+      textTransform: "uppercase",
+      letterSpacing: "0.05em",
+      fontFamily: "'DM Sans',sans-serif",
+      marginBottom: 4
+    }
+  }, monthName.slice(0, 3)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 17,
+      fontWeight: 800,
+      color: "#ccc",
+      fontFamily: "'DM Mono',monospace"
+    }
+  }, fmtGBP(monthPay)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "#444",
+      fontFamily: "'DM Sans',sans-serif",
+      marginTop: 2
+    }
+  }, fmtHours(monthHours)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 10,
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      paddingTop: 10,
+      borderTop: "1px solid #222"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: "#444",
+      fontFamily: "'DM Sans',sans-serif",
+      textTransform: "uppercase",
+      letterSpacing: "0.06em",
+      fontWeight: 700
+    }
+  }, "Total hours this week"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 16,
+      fontWeight: 800,
+      color: "#4f8ef7",
+      fontFamily: "'DM Mono',monospace"
+    }
+  }, fmtHours(totalHours)))));
+};
+
+// ─── Shift Day Row ────────────────────────────────────────────────────────────
+const ShiftRow = ({
+  date,
+  shift,
+  onChange,
+  color,
+  isExpanded,
+  onToggle
+}) => {
+  const d = new Date(date + "T00:00:00");
+  const isToday = date === new Date().toISOString().slice(0, 10);
+  const hrs = shiftHours(shift);
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 6,
+      border: `1px solid ${shift.working ? color + "40" : "#1e1e1e"}`,
+      borderRadius: 12,
+      overflow: "hidden",
+      transition: "border-color 0.2s"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      padding: "10px 12px",
+      background: shift.working ? color + "0c" : "#161616",
+      gap: 10,
+      cursor: "pointer",
+      minHeight: 52
+    },
+    onClick: onToggle
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 34,
+      textAlign: "center",
+      flexShrink: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      fontWeight: 700,
+      textTransform: "uppercase",
+      letterSpacing: "0.06em",
+      fontFamily: "'DM Sans',sans-serif",
+      color: isToday ? color : "#505050"
+    }
+  }, dayName(date)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 20,
+      fontWeight: 800,
+      lineHeight: 1,
+      fontFamily: "'DM Mono',monospace",
+      color: isToday ? color : shift.working ? "#ccc" : "#505050"
+    }
+  }, d.getDate())), /*#__PURE__*/React.createElement(CB, {
+    checked: shift.working,
+    onChange: () => onChange({
+      ...shift,
+      working: !shift.working
+    }),
+    accent: color
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      minWidth: 0
+    }
+  }, shift.working && shift.startTime && shift.endTime ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 14,
+      color: "#999",
+      fontFamily: "'DM Sans',sans-serif",
+      whiteSpace: "nowrap",
+      overflow: "hidden",
+      textOverflow: "ellipsis"
+    }
+  }, shift.startTime, " – ", shift.endTime, shift.hasSleepover && /*#__PURE__*/React.createElement("span", {
+    style: {
+      marginLeft: 5
+    }
+  }, "💤"), shift.note && /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "#484848",
+      marginLeft: 5,
+      fontSize: 11
+    }
+  }, "· ", shift.note)) : /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: "#333",
+      fontFamily: "'DM Sans',sans-serif"
+    }
+  }, shift.working ? "Tap to set times" : "Not working")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 6,
+      flexShrink: 0
+    }
+  }, shift.working && hrs > 0 && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      color,
+      fontFamily: "'DM Mono',monospace"
+    }
+  }, fmtHours(hrs)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 13,
+      color: "#2e2e2e",
+      transition: "transform 0.18s",
+      display: "block",
+      transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)"
+    }
+  }, "⌃"))), isExpanded && /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "6px 14px 14px",
+      background: "#111",
+      borderTop: "1px solid #1c1c1c"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10,
+      marginTop: 10,
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, /*#__PURE__*/React.createElement(FL, null, "Start"), /*#__PURE__*/React.createElement(In, {
+    type: "time",
+    value: shift.startTime,
+    onChange: e => onChange({
+      ...shift,
+      startTime: e.target.value
+    })
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, /*#__PURE__*/React.createElement(FL, null, "End"), /*#__PURE__*/React.createElement(In, {
+    type: "time",
+    value: shift.endTime,
+    onChange: e => onChange({
+      ...shift,
+      endTime: e.target.value
+    })
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement(FL, null, "Note"), /*#__PURE__*/React.createElement(In, {
+    placeholder: "e.g. Bank holiday, cover shift…",
+    value: shift.note,
+    onChange: e => onChange({
+      ...shift,
+      note: e.target.value
+    })
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: shift.hasSleepover ? 12 : 0
+    }
+  }, /*#__PURE__*/React.createElement(CB, {
+    checked: shift.hasSleepover,
+    onChange: () => onChange({
+      ...shift,
+      hasSleepover: !shift.hasSleepover
+    }),
+    label: "Includes sleepover",
+    accent: "#9b59b6"
+  })), shift.hasSleepover && /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "#18111f",
+      borderRadius: 10,
+      padding: "12px",
+      border: "1px solid #32244a",
+      marginTop: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      fontWeight: 700,
+      color: "#9b59b6",
+      marginBottom: 10,
+      fontFamily: "'DM Sans',sans-serif",
+      letterSpacing: "0.08em",
+      textTransform: "uppercase"
+    }
+  }, "💤 Sleepover Details"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10,
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, /*#__PURE__*/React.createElement(FL, null, "From"), /*#__PURE__*/React.createElement(In, {
+    type: "time",
+    value: shift.slpStart,
+    onChange: e => onChange({
+      ...shift,
+      slpStart: e.target.value
+    })
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, /*#__PURE__*/React.createElement(FL, null, "Until"), /*#__PURE__*/React.createElement(In, {
+    type: "time",
+    value: shift.slpEnd,
+    onChange: e => onChange({
+      ...shift,
+      slpEnd: e.target.value
+    })
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 12,
+      alignItems: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, /*#__PURE__*/React.createElement(FL, null, "Fixed Rate (£)"), /*#__PURE__*/React.createElement(In, {
+    type: "number",
+    value: shift.sleepoversRate,
+    onChange: e => onChange({
+      ...shift,
+      sleepoversRate: parseFloat(e.target.value) || 0
+    }),
+    style: {
+      textAlign: "right"
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, /*#__PURE__*/React.createElement(CB, {
+    checked: shift.continuesNext,
+    onChange: () => onChange({
+      ...shift,
+      continuesNext: !shift.continuesNext
+    }),
+    label: "Continues next day",
+    accent: "#9b59b6"
+  }))))));
+};
+
+// ─── Weekly View ──────────────────────────────────────────────────────────────
+const WeeklyView = ({
+  agencies,
+  shifts,
+  setShifts,
+  weekStartDay
+}) => {
+  const today = new Date().toISOString().slice(0, 10);
+  const [offset, setOffset] = useState(0);
+  const [activeAg, setActiveAg] = useState(agencies[0]?.id);
+  const [expanded, setExpanded] = useState(null);
+
+  // Derive weekKey fresh each render from current weekStartDay — no stale state
+  const baseKey = getWeekKey(today, weekStartDay);
+  const weekKey = (() => {
+    const d = new Date(baseKey);
+    d.setDate(d.getDate() + offset * 7);
+    return d.toISOString().slice(0, 10);
+  })();
+  const weekDates = getWeekDates(weekKey);
+  const agency = agencies.find(a => a.id === activeAg);
+  const getShift = (date, aid) => shifts[`${date}_${aid}`] || blankShift(aid);
+  const setShift = (date, aid, s) => setShifts(p => ({
+    ...p,
+    [`${date}_${aid}`]: s
+  }));
+  const weekStats = useMemo(() => agencies.map(ag => {
+    let hours = 0,
+      pay = 0;
+    weekDates.forEach(d => {
+      const s = getShift(d, ag.id);
+      hours += shiftHours(s);
+      pay += shiftPay(s, ag.rate);
+    });
+    return {
+      ...ag,
+      hours,
+      pay
+    };
+  }), [weekKey, shifts, agencies]);
+  const totalHours = weekStats.reduce((s, a) => s + a.hours, 0);
+  const totalPay = weekStats.reduce((s, a) => s + a.pay, 0);
+  const monthStats = useMemo(() => {
+    const m = weekKey.slice(0, 7);
+    let hours = 0,
+      pay = 0;
+    Object.keys(shifts).forEach(k => {
+      const [date, aid] = k.split("_");
+      if (!date.startsWith(m)) return;
+      const sh = shifts[k];
+      if (!sh?.working) return;
+      const ag = agencies.find(a => a.id === aid);
+      if (!ag) return;
+      hours += shiftHours(sh);
+      pay += shiftPay(sh, ag.rate);
+    });
+    return {
+      hours,
+      pay
+    };
+  }, [weekKey, shifts, agencies]);
+  const isCurrentWeek = offset === 0;
+  const handleShiftChange = (date, aid, s) => {
+    setShift(date, aid, s);
+    if (s.working && expanded !== date) setExpanded(date);
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      paddingBottom: 90
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setOffset(o => o - 1);
+      setExpanded(null);
+    },
+    style: {
+      background: "#1a1a1a",
+      border: "1px solid #252525",
+      borderRadius: 10,
+      color: "#777",
+      padding: "7px 14px",
+      cursor: "pointer",
+      fontSize: 17
+    }
+  }, "‹"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      textAlign: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: "#bbb",
+      fontFamily: "'DM Sans',sans-serif"
+    }
+  }, weekLabel(weekKey)), isCurrentWeek && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: "#4f8ef7",
+      fontWeight: 700,
+      fontFamily: "'DM Sans',sans-serif",
+      letterSpacing: "0.06em"
+    }
+  }, "CURRENT WEEK")), /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setOffset(o => o + 1);
+      setExpanded(null);
+    },
+    style: {
+      background: "#1a1a1a",
+      border: "1px solid #252525",
+      borderRadius: 10,
+      color: "#777",
+      padding: "7px 14px",
+      cursor: "pointer",
+      fontSize: 17
+    }
+  }, "›"), !isCurrentWeek && /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setOffset(0);
+      setExpanded(null);
+    },
+    style: {
+      background: "#1a1a1a",
+      border: "1px solid #252525",
+      borderRadius: 9,
+      color: "#4f8ef7",
+      padding: "7px 10px",
+      cursor: "pointer",
+      fontFamily: "'DM Sans',sans-serif",
+      fontSize: 12,
+      fontWeight: 700
+    }
+  }, "Today")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 7,
+      marginBottom: 10
+    }
+  }, agencies.map(ag => /*#__PURE__*/React.createElement("button", {
+    key: ag.id,
+    onClick: () => {
+      setActiveAg(ag.id);
+      setExpanded(null);
+    },
+    style: {
+      flex: 1,
+      padding: "10px 8px",
+      borderRadius: 10,
+      cursor: "pointer",
+      background: activeAg === ag.id ? ag.color : "#1a1a1a",
+      border: `1px solid ${activeAg === ag.id ? ag.color : "#252525"}`,
+      color: activeAg === ag.id ? "#fff" : "#555",
+      fontFamily: "'DM Sans',sans-serif",
+      fontWeight: 700,
+      fontSize: 14,
+      transition: "all 0.18s"
+    }
+  }, ag.name))), agency && weekDates.map(date => /*#__PURE__*/React.createElement(ShiftRow, {
+    key: date,
+    date: date,
+    shift: getShift(date, agency.id),
+    onChange: s => handleShiftChange(date, agency.id, s),
+    color: agency.color,
+    isExpanded: expanded === date,
+    onToggle: () => setExpanded(p => p === date ? null : date)
+  })), /*#__PURE__*/React.createElement(SummaryTile, {
+    weekStats: weekStats,
+    totalHours: totalHours,
+    totalPay: totalPay,
+    monthPay: monthStats.pay,
+    monthHours: monthStats.hours,
+    weekKey: weekKey
+  }));
+};
+
+// ─── Reports View ─────────────────────────────────────────────────────────────
+const ReportsView = ({
+  agencies,
+  shifts,
+  weekStartDay
+}) => {
+  const [mode, setMode] = useState("monthly");
+  const now = new Date();
+  const [year, setYear] = useState(now.getFullYear());
+  const [month, setMonth] = useState(now.getMonth());
+  const allKeys = Object.keys(shifts);
+  const years = Array.from({
+    length: 5
+  }, (_, i) => now.getFullYear() - 2 + i);
+  const filtered = useMemo(() => allKeys.filter(k => {
+    const [date] = k.split("_");
+    const d = new Date(date);
+    if (mode === "yearly") return d.getFullYear() === year;
+    return d.getFullYear() === year && d.getMonth() === month;
+  }), [shifts, mode, year, month]);
+  const calcPeriod = keys => {
+    const r = agencies.map(ag => ({
+      ...ag,
+      hours: 0,
+      pay: 0,
+      sleepovers: 0
+    }));
+    keys.forEach(k => {
+      const [, aid] = k.split("_");
+      const sh = shifts[k];
+      if (!sh?.working) return;
+      const ag = r.find(a => a.id === aid);
+      if (!ag) return;
+      ag.hours += shiftHours(sh);
+      ag.pay += shiftPay(sh, ag.rate);
+      if (sh.hasSleepover) ag.sleepovers++;
+    });
+    return r;
+  };
+  const data = calcPeriod(filtered);
+  const totalHours = data.reduce((s, a) => s + a.hours, 0);
+  const totalPay = data.reduce((s, a) => s + a.pay, 0);
+  const weeklyBreakdown = useMemo(() => {
+    if (mode !== "weekly") return [];
+    const wm = {};
+    filtered.forEach(k => {
+      const [date, aid] = k.split("_");
+      const sh = shifts[k];
+      if (!sh?.working) return;
+      const wk = getWeekKey(date, weekStartDay);
+      if (!wm[wk]) wm[wk] = {
+        hours: 0,
+        pay: 0
+      };
+      const ag = agencies.find(a => a.id === aid);
+      if (!ag) return;
+      wm[wk].hours += shiftHours(sh);
+      wm[wk].pay += shiftPay(sh, ag.rate);
+    });
+    return Object.entries(wm).sort(([a], [b]) => a.localeCompare(b)).map(([wk, d]) => ({
+      wk,
+      ...d
+    }));
+  }, [filtered, mode, weekStartDay]);
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      paddingBottom: 90
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 4,
+      marginBottom: 14,
+      background: "#111",
+      borderRadius: 12,
+      padding: 4,
+      border: "1px solid #1e1e1e"
+    }
+  }, [["weekly", "Weekly"], ["monthly", "Monthly"], ["yearly", "Yearly"]].map(([id, lbl]) => /*#__PURE__*/React.createElement("button", {
+    key: id,
+    onClick: () => setMode(id),
+    style: {
+      flex: 1,
+      padding: "8px 4px",
+      borderRadius: 8,
+      cursor: "pointer",
+      background: mode === id ? "#4f8ef7" : "none",
+      border: "none",
+      color: mode === id ? "#fff" : "#555",
+      fontFamily: "'DM Sans',sans-serif",
+      fontWeight: 700,
+      fontSize: 13,
+      transition: "all 0.18s"
+    }
+  }, lbl))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      marginBottom: 14
+    }
+  }, mode !== "yearly" && /*#__PURE__*/React.createElement("select", {
+    value: month,
+    onChange: e => setMonth(+e.target.value),
+    style: {
+      flex: 2,
+      background: "#1a1a1a",
+      border: "1px solid #252525",
+      borderRadius: 10,
+      color: "#ccc",
+      padding: "10px 12px",
+      fontFamily: "'DM Sans',sans-serif",
+      fontSize: 14
+    }
+  }, MONTHS.map((m, i) => /*#__PURE__*/React.createElement("option", {
+    key: i,
+    value: i
+  }, m))), /*#__PURE__*/React.createElement("select", {
+    value: year,
+    onChange: e => setYear(+e.target.value),
+    style: {
+      flex: 1,
+      background: "#1a1a1a",
+      border: "1px solid #252525",
+      borderRadius: 10,
+      color: "#ccc",
+      padding: "10px 12px",
+      fontFamily: "'DM Sans',sans-serif",
+      fontSize: 14
+    }
+  }, years.map(y => /*#__PURE__*/React.createElement("option", {
+    key: y,
+    value: y
+  }, y)))), data.map(ag => /*#__PURE__*/React.createElement(C, {
+    key: ag.id
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between"
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      marginBottom: 4
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 9,
+      height: 9,
+      borderRadius: "50%",
+      background: ag.color
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: 700,
+      color: "#ccc",
+      fontFamily: "'DM Sans',sans-serif"
+    }
+  }, ag.name), ag.sleepovers > 0 && /*#__PURE__*/React.createElement("span", {
+    style: {
+      background: "#9b59b622",
+      color: "#9b59b6",
+      fontSize: 11,
+      fontWeight: 700,
+      borderRadius: 6,
+      padding: "3px 8px",
+      fontFamily: "'DM Sans',sans-serif"
+    }
+  }, "💤 ×", ag.sleepovers)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#484848",
+      fontFamily: "'DM Sans',sans-serif"
+    }
+  }, fmtHours(ag.hours), " @ ", fmtGBP(ag.rate), "/hr")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 22,
+      fontWeight: 800,
+      color: ag.color,
+      fontFamily: "'DM Mono',monospace"
+    }
+  }, fmtGBP(ag.pay))))), mode === "weekly" && weeklyBreakdown.map(({
+    wk,
+    hours,
+    pay
+  }) => /*#__PURE__*/React.createElement(C, {
+    key: wk,
+    style: {
+      padding: "10px 14px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      color: "#bbb",
+      fontFamily: "'DM Sans',sans-serif"
+    }
+  }, weekLabel(wk)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "#484848",
+      fontFamily: "'DM Sans',sans-serif"
+    }
+  }, fmtHours(hours))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 16,
+      fontWeight: 800,
+      color: "#2ecc71",
+      fontFamily: "'DM Mono',monospace"
+    }
+  }, fmtGBP(pay))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "#161616",
+      borderRadius: 14,
+      padding: "16px",
+      border: "1px solid #222",
+      marginTop: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: "#484848",
+      fontWeight: 700,
+      textTransform: "uppercase",
+      letterSpacing: "0.1em",
+      fontFamily: "'DM Sans',sans-serif",
+      marginBottom: 8
+    }
+  }, "Combined · ", mode === "yearly" ? year : `${MONTHS[month]} ${year}`), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "flex-end"
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 30,
+      fontWeight: 800,
+      color: "#2ecc71",
+      fontFamily: "'DM Mono',monospace",
+      lineHeight: 1
+    }
+  }, fmtGBP(totalPay)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#484848",
+      fontFamily: "'DM Sans',sans-serif",
+      marginTop: 4
+    }
+  }, fmtHours(totalHours), " across all agencies")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "right"
+    }
+  }, agencies.map(ag => {
+    const d = data.find(a => a.id === ag.id);
+    return /*#__PURE__*/React.createElement("div", {
+      key: ag.id,
+      style: {
+        fontSize: 11,
+        color: ag.color,
+        fontFamily: "'DM Mono',monospace",
+        fontWeight: 700,
+        marginBottom: 2
+      }
+    }, ag.name, ": ", fmtGBP(d?.pay || 0));
+  })))), filtered.length === 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      color: "#2e2e2e",
+      padding: "40px 20px",
+      fontFamily: "'DM Sans',sans-serif"
+    }
+  }, "No shifts logged for this period"));
+};
+
+// ─── Settings View ────────────────────────────────────────────────────────────
+const SettingsView = ({
+  agencies,
+  setAgencies,
+  shifts,
+  setShifts,
+  prefs,
+  setPrefs
+}) => {
+  const [editId, setEditId] = useState(null);
+  const [form, setForm] = useState({
+    name: "",
+    rate: "",
+    color: "#4f8ef7"
+  });
+  const [showAdd, setShowAdd] = useState(false);
+  const [importStatus, setImportStatus] = useState(null);
+  const colors = ["#4f8ef7", "#f7874f", "#2ecc71", "#e74c3c", "#9b59b6", "#f1c40f", "#1abc9c", "#e91e8c"];
+  const startEdit = ag => {
+    setEditId(ag.id);
+    setForm({
+      name: ag.name,
+      rate: ag.rate,
+      color: ag.color
+    });
+  };
+  const saveEdit = () => {
+    setAgencies(p => p.map(a => a.id === editId ? {
+      ...a,
+      name: form.name,
+      rate: parseFloat(form.rate) || a.rate,
+      color: form.color
+    } : a));
+    setEditId(null);
+  };
+  const addAgency = () => {
+    setAgencies(p => [...p, {
+      id: uuid(),
+      name: form.name,
+      rate: parseFloat(form.rate) || 12,
+      color: form.color
+    }]);
+    setShowAdd(false);
+    setForm({
+      name: "",
+      rate: "",
+      color: "#4f8ef7"
+    });
+  };
+  const removeAgency = id => {
+    if (agencies.length > 1) setAgencies(p => p.filter(a => a.id !== id));
+  };
+  const exportData = (emailBackup = false) => {
+    const data = {
+      version: 1,
+      exportedAt: new Date().toISOString(),
+      agencies,
+      shifts,
+      prefs
+    };
+    const json = JSON.stringify(data, null, 2);
+    const date = new Date().toISOString().slice(0, 10);
+    if (emailBackup) {
+      const sub = encodeURIComponent(`Shifto Backup – ${date}`);
+      const body = encodeURIComponent(`Shifto backup from ${date}\n\nSave everything below as shifto-backup-${date}.json\n\n---BEGIN BACKUP---\n${json}\n---END BACKUP---`);
+      window.location.href = `mailto:?subject=${sub}&body=${body}`;
+    } else {
+      const url = URL.createObjectURL(new Blob([json], {
+        type: "application/json"
+      }));
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `shifto-backup-${date}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  };
+  const importData = file => {
+    const r = new FileReader();
+    r.onload = e => {
+      try {
+        const d = JSON.parse(e.target.result);
+        if (!d.agencies || !d.shifts) throw new Error("Invalid");
+        setAgencies(d.agencies);
+        setShifts(d.shifts);
+        if (d.prefs) setPrefs(d.prefs);
+        setImportStatus("success");
+      } catch {
+        setImportStatus("error");
+      }
+    };
+    r.readAsText(file);
+  };
+  const AgencyForm = ({
+    onSave,
+    onCancel,
+    action,
+    onDelete
+  }) => /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "#111",
+      borderRadius: 12,
+      padding: 14,
+      marginTop: 10,
+      border: "1px solid #252525"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement(FL, null, "Agency Name"), /*#__PURE__*/React.createElement(In, {
+    value: form.name,
+    onChange: e => setForm(f => ({
+      ...f,
+      name: e.target.value
+    })),
+    placeholder: "e.g. Agency 3"
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement(FL, null, "Hourly Rate (£)"), /*#__PURE__*/React.createElement(In, {
+    type: "number",
+    step: "0.01",
+    value: form.rate,
+    onChange: e => setForm(f => ({
+      ...f,
+      rate: e.target.value
+    })),
+    placeholder: "0.00",
+    style: {
+      textAlign: "right"
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement(FL, null, "Colour"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      flexWrap: "wrap"
+    }
+  }, colors.map(c => /*#__PURE__*/React.createElement("div", {
+    key: c,
+    onClick: () => setForm(f => ({
+      ...f,
+      color: c
+    })),
+    style: {
+      width: 28,
+      height: 28,
+      borderRadius: "50%",
+      background: c,
+      cursor: "pointer",
+      border: form.color === c ? "3px solid #fff" : "3px solid transparent",
+      transition: "border 0.15s"
+    }
+  })))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: onSave,
+    style: {
+      flex: 1,
+      padding: "10px",
+      borderRadius: 10,
+      background: "#4f8ef7",
+      border: "none",
+      color: "#fff",
+      fontFamily: "'DM Sans',sans-serif",
+      fontWeight: 700,
+      fontSize: 14,
+      cursor: "pointer"
+    }
+  }, action), /*#__PURE__*/React.createElement("button", {
+    onClick: onCancel,
+    style: {
+      flex: 1,
+      padding: "10px",
+      borderRadius: 10,
+      background: "#1a1a1a",
+      border: "1px solid #252525",
+      color: "#666",
+      fontFamily: "'DM Sans',sans-serif",
+      fontWeight: 700,
+      fontSize: 14,
+      cursor: "pointer"
+    }
+  }, "Cancel")), onDelete && /*#__PURE__*/React.createElement(DeleteConfirm, {
+    onDelete: onDelete
+  }));
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      paddingBottom: 90
+    }
+  }, /*#__PURE__*/React.createElement(SL, null, "App Preferences"), /*#__PURE__*/React.createElement(C, null, /*#__PURE__*/React.createElement(FL, null, "App Name"), /*#__PURE__*/React.createElement(In, {
+    value: prefs.appName,
+    onChange: e => setPrefs(p => ({
+      ...p,
+      appName: e.target.value || "Shifto"
+    })),
+    placeholder: "Shifto",
+    style: {
+      marginBottom: 14
+    }
+  }), /*#__PURE__*/React.createElement(FL, null, "Week Starts On"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 6
+    }
+  }, WEEK_DAYS.map(wd => /*#__PURE__*/React.createElement("button", {
+    key: wd.v,
+    onClick: () => setPrefs(p => ({
+      ...p,
+      weekStartDay: wd.v
+    })),
+    style: {
+      padding: "7px 13px",
+      borderRadius: 9,
+      cursor: "pointer",
+      background: prefs.weekStartDay === wd.v ? "#4f8ef7" : "#141414",
+      border: `1px solid ${prefs.weekStartDay === wd.v ? "#4f8ef7" : "#252525"}`,
+      color: prefs.weekStartDay === wd.v ? "#fff" : "#555",
+      fontFamily: "'DM Sans',sans-serif",
+      fontWeight: 700,
+      fontSize: 12,
+      transition: "all 0.15s"
+    }
+  }, wd.l))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 8,
+      fontSize: 11,
+      color: "#3a3a3a",
+      fontFamily: "'DM Sans',sans-serif"
+    }
+  }, "Currently: weeks start on ", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "#4f8ef7"
+    }
+  }, WEEK_DAYS.find(w => w.v === prefs.weekStartDay)?.l === "Mon" ? "Monday" : WEEK_DAYS.find(w => w.v === prefs.weekStartDay)?.l))), /*#__PURE__*/React.createElement(SL, null, "Google Drive Sync"), /*#__PURE__*/React.createElement(C, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#555",
+      fontFamily: "'DM Sans',sans-serif",
+      marginBottom: 12,
+      lineHeight: 1.6
+    }
+  }, "Sign in with Google once — your shifts sync to Google Drive automatically. Open on any device, tap Restore to get your data back."), /*#__PURE__*/React.createElement(GoogleSync, {
+    agencies: agencies,
+    shifts: shifts,
+    prefs: prefs,
+    onRestore: data => {
+      if (data.agencies) setAgencies(data.agencies);
+      if (data.shifts) setShifts(data.shifts);
+      if (data.prefs) setPrefs(data.prefs);
+    }
+  })), /*#__PURE__*/React.createElement(SL, null, "Agencies & Rates"), agencies.map(ag => /*#__PURE__*/React.createElement(C, {
+    key: ag.id
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 11,
+      height: 11,
+      borderRadius: "50%",
+      background: ag.color,
+      flexShrink: 0
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      color: "#d0d0d0",
+      fontFamily: "'DM Sans',sans-serif"
+    }
+  }, ag.name), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#484848",
+      fontFamily: "'DM Mono',monospace"
+    }
+  }, fmtGBP(ag.rate), "/hr")), /*#__PURE__*/React.createElement("button", {
+    onClick: () => startEdit(ag),
+    style: {
+      background: "#222",
+      border: "none",
+      borderRadius: 8,
+      color: "#777",
+      padding: "6px 12px",
+      cursor: "pointer",
+      fontFamily: "'DM Sans',sans-serif",
+      fontSize: 13,
+      fontWeight: 600
+    }
+  }, "Edit")), editId === ag.id && /*#__PURE__*/React.createElement(AgencyForm, {
+    onSave: saveEdit,
+    onCancel: () => setEditId(null),
+    action: "Save Changes",
+    onDelete: () => {
+      removeAgency(ag.id);
+      setEditId(null);
+    }
+  }))), !showAdd ? /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setShowAdd(true);
+      setForm({
+        name: "",
+        rate: "",
+        color: "#4f8ef7"
+      });
+    },
+    style: {
+      width: "100%",
+      padding: "12px",
+      borderRadius: 12,
+      background: "#141414",
+      border: "2px dashed #252525",
+      color: "#484848",
+      fontFamily: "'DM Sans',sans-serif",
+      fontWeight: 700,
+      fontSize: 14,
+      cursor: "pointer"
+    }
+  }, "+ Add New Agency") : /*#__PURE__*/React.createElement(C, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      fontWeight: 700,
+      color: "#555",
+      textTransform: "uppercase",
+      letterSpacing: "0.08em",
+      fontFamily: "'DM Sans',sans-serif",
+      marginBottom: 4
+    }
+  }, "New Agency"), /*#__PURE__*/React.createElement(AgencyForm, {
+    onSave: addAgency,
+    onCancel: () => setShowAdd(false),
+    action: "Add Agency",
+    onDelete: null
+  })), /*#__PURE__*/React.createElement(SL, null, "Backup & Restore"), /*#__PURE__*/React.createElement(C, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#555",
+      fontFamily: "'DM Sans',sans-serif",
+      marginBottom: 12,
+      lineHeight: 1.6
+    }
+  }, "Export saves all your shifts, agencies and settings. Email backup sends the data to your inbox."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => exportData(false),
+    style: {
+      flex: 1,
+      padding: "11px",
+      borderRadius: 10,
+      background: "#1a2a1a",
+      border: "1px solid #2a4a2a",
+      color: "#2ecc71",
+      fontFamily: "'DM Sans',sans-serif",
+      fontWeight: 700,
+      fontSize: 13,
+      cursor: "pointer"
+    }
+  }, "⬇ Save to Files"), /*#__PURE__*/React.createElement("button", {
+    onClick: () => exportData(true),
+    style: {
+      flex: 1,
+      padding: "11px",
+      borderRadius: 10,
+      background: "#1a1a2e",
+      border: "1px solid #2a2a5a",
+      color: "#7ab3ff",
+      fontFamily: "'DM Sans',sans-serif",
+      fontWeight: 700,
+      fontSize: 13,
+      cursor: "pointer"
+    }
+  }, "✉ Email Backup")), /*#__PURE__*/React.createElement("label", {
+    style: {
+      padding: "11px",
+      borderRadius: 10,
+      background: "#1a1a2a",
+      border: "1px solid #2a2a4a",
+      color: "#4f8ef7",
+      fontFamily: "'DM Sans',sans-serif",
+      fontWeight: 700,
+      fontSize: 13,
+      cursor: "pointer",
+      textAlign: "center",
+      display: "block"
+    }
+  }, "⬆ Import Backup", /*#__PURE__*/React.createElement("input", {
+    type: "file",
+    accept: ".json",
+    style: {
+      display: "none"
+    },
+    onChange: e => {
+      const f = e.target.files[0];
+      if (f) {
+        importData(f);
+      }
+      e.target.value = "";
+    }
+  })), importStatus && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 10,
+      fontSize: 12,
+      color: importStatus === "success" ? "#2ecc71" : "#e74c3c",
+      fontFamily: "'DM Sans',sans-serif",
+      textAlign: "center"
+    }
+  }, importStatus === "success" ? "✓ Restored successfully" : "✕ Invalid file")), /*#__PURE__*/React.createElement(SL, null, "About"), /*#__PURE__*/React.createElement(C, {
+    style: {
+      padding: "12px 14px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#3a3a3a",
+      fontFamily: "'DM Sans',sans-serif",
+      lineHeight: 1.8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#555",
+      fontWeight: 700,
+      marginBottom: 2
+    }
+  }, prefs.appName, " · Shift & Pay Tracker"), "Data stored locally · Works offline · Google Drive sync available")));
+};
+
+// ─── Main App ─────────────────────────────────────────────────────────────────
+function App() {
+  const [agencies, setAgencies] = useState(() => load("spt_agencies", DEFAULT_AGENCIES));
+  const [shifts, setShifts] = useState(() => load("spt_shifts", {}));
+  const [prefs, setPrefs] = useState(() => {
+    const p = load("spt_prefs", null);
+    if (!p) return DEFAULT_PREFS;
+    // Ensure weekStartDay is always a valid number
+    return {
+      ...DEFAULT_PREFS,
+      ...p,
+      weekStartDay: typeof p.weekStartDay === "number" ? p.weekStartDay : DEFAULT_PREFS.weekStartDay
+    };
+  });
+  const [tab, setTab] = useState("week");
+  useEffect(() => {
+    save("spt_agencies", agencies);
+  }, [agencies]);
+  useEffect(() => {
+    save("spt_shifts", shifts);
+  }, [shifts]);
+  useEffect(() => {
+    save("spt_prefs", prefs);
+  }, [prefs]);
+  const headerHeight = "calc(env(safe-area-inset-top, 44px) + 140px)";
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, `
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800;900&family=DM+Mono:wght@400;500;700&display=swap');
+        *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+        html,body{height:100%;background:#0e0e0e;color:#f0f0f0;overflow-x:hidden;}
+        input[type="time"]::-webkit-calendar-picker-indicator{filter:invert(0.35);}
+        select option{background:#1a1a1a;}
+        ::-webkit-scrollbar{width:0;}
+        #root{height:100%;}
+      `), /*#__PURE__*/React.createElement("div", {
+    style: {
+      maxWidth: 430,
+      margin: "0 auto",
+      minHeight: "100dvh",
+      background: "#0e0e0e"
+    }
+  }, /*#__PURE__*/React.createElement(AppHeader, {
+    appName: prefs.appName || "Shifto",
+    agencies: agencies,
+    tab: tab,
+    onTabChange: setTab
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "12px 14px 0",
+      paddingTop: headerHeight
+    }
+  }, tab === "week" && /*#__PURE__*/React.createElement(WeeklyView, {
+    key: prefs.weekStartDay,
+    agencies: agencies,
+    shifts: shifts,
+    setShifts: setShifts,
+    weekStartDay: prefs.weekStartDay
+  }), tab === "reports" && /*#__PURE__*/React.createElement(ReportsView, {
+    agencies: agencies,
+    shifts: shifts,
+    weekStartDay: prefs.weekStartDay
+  }), tab === "settings" && /*#__PURE__*/React.createElement(SettingsView, {
+    agencies: agencies,
+    setAgencies: setAgencies,
+    shifts: shifts,
+    setShifts: setShifts,
+    prefs: prefs,
+    setPrefs: setPrefs
+  })), /*#__PURE__*/React.createElement(TabBar, {
+    active: tab,
+    onChange: setTab
+  })));
+}
+ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App, null));
+
+  </script>
+</body>
+</html>
